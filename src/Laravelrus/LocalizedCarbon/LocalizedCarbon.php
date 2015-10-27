@@ -81,11 +81,23 @@ class LocalizedCarbon extends Carbon {
         return $result;
     }
 
+    /**
+     * Check if dates have the same month
+     *
+     * @param Carbon $date
+     * @return bool
+     */
     public function isSameMonth(Carbon $date)
     {
-        return $this->month == $date->month;
+        return $this->isSameYear($date) && $this->month == $date->month;
     }
 
+    /**
+     * Check if dates have the same year
+     *
+     * @param Carbon $date
+     * @return bool
+     */
     public function isSameYear(Carbon $date)
     {
         return $this->year == $date->year;
